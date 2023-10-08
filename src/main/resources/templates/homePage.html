@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+		  rel="stylesheet"
+		  integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+		  crossorigin="anonymous">
+
+	<title>Currency Converter</title>
+</head>
+
+<body>
+<br>
+<br>
+<div class="container">
+	<h3>Currency Converter</h3>
+	<hr>
+
+	<form id="currencyConversionForm" action="/result" method="post">
+		<table class="table table-bordered table-striped">
+			<thead class="table-dark">
+			<tr>
+				<th>From</th>
+				<th>Amount</th>
+				<th>To</th>
+			</tr>
+			</thead>
+
+			<tbody>
+			<tr>
+				<td>
+					<select id="fromCurrency" name="from" class="form-select">
+						<option value="USD">USD</option>
+						<option value="INR">INR</option>
+						<option value="LE">LE</option>
+					</select>
+				</td>
+				<td>
+					<input id="amount" name="amount" type="text" class="form-control"/>
+				</td>
+				<td>
+					<select id="toCurrency" name="to" class="form-select">
+						<option value="USD">USD</option>
+						<option value="INR">INR</option>
+						<option value="LE">LE</option>
+					</select>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<button type="submit" class="btn btn-primary">Convert</button>
+	</form>
+
+	<!-- Result display area -->
+	<div id="resultDiv" th:if="${convertedAmount != null}" class="mt-4">
+		<h4>Converted Amount:</h4>
+		<p th:text="'Result: ' + ${convertedAmount}" class="lead"></p>
+	</div>
+</div>
+
+</body>
+</html>
